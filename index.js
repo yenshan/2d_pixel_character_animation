@@ -22,20 +22,13 @@ export const spritesheet = new SpriteSheet('./spritesheet.png');
 
 let player = Chara.create(5,10);
 let monster = Monster.create(40,20);
-
 monster.setTarget(player);
 
 function update() {
     // オリジナルサイズをバックグランドバッファに描画
     context_bg.clearRect(0, 0, canvas_bg.width, canvas_bg.height);
 
-    if (input.left) {
-        player.move_left();
-    }
-    if (input.right) {
-        player.move_right();
-    }
-
+    // ゲームオブジェクトの更新
     for (let o of [player, monster]) {
         o.update();
         o.draw();
