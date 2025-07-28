@@ -28,6 +28,11 @@ function update() {
     // オリジナルサイズをバックグランドバッファに描画
     context_bg.clearRect(0, 0, canvas_bg.width, canvas_bg.height);
 
+    if (player.x > canvas_bg.width)
+        player.x = 0;
+    if (player.x+8 <= 0)
+        player.x = canvas_bg.width;
+
     // ゲームオブジェクトの更新
     for (let o of [player, monster]) {
         o.update();
